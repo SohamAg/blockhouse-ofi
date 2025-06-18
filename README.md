@@ -11,23 +11,16 @@ This repository implements four key OFI features for analyzing order book dynami
 Folder Structure is as follows:
 
 blockhouse-ofi/
-│
-├── data/                       # Input folder for order book CSVs (e.g., AAPL.csv, GOOG.csv)
-│   └── AAPL.csv               # Example: Order book data for AAPL
-|   └── GOOG.csv               # Example: This is the exact same order book as before, just with the symbol changed to GOOG
-│
-├── output/                     # All generated feature CSVs and plots are saved here
-│   ├── AAPL_ofi_features.csv   # Best, Multi-Level, Integrated OFI features for AAPL
-│   ├── AAPL_ofi_all_features.csv  # Includes cross-asset OFI if available
-│
-├── ofi_utils.py                # Core utility functions for OFI calculations (level-wise, etc.)
-├── ofi_feature_generator.py    # Handles feature computation for AAPL: best, multi, integrated OFI
-├── ofi_cross_assets.py         # Computes Cross-Asset OFI using Lasso regression + PCA
-├── plot.py                     # Utility for visualizing OFI features
-├── main.py                     # Entry point: loads files, computes features, saves and plots results
-│
-├── requirements.txt            # Python dependencies
-└── README.md                   # Documentation and setup instructions
+├── data/ # Input CSV files (e.g., AAPL.csv, GOOG.csv)
+├── output/ # Output CSVs and plots
+├── main.py # Main script to run all OFI feature extraction
+├── ofi_feature_generator.py # Best, Multi-Level, and Integrated OFI logic
+├── ofi_cross_assets.py # Cross-Asset OFI logic (Equation 9 from paper)
+├── ofi_utils.py # Utility functions for OFI calculations
+├── plot.py # Plotting utilities for features
+├── README.md # Documentation and instructions
+├── requirements.txt # Python dependencies
+└── .gitignore # Files to exclude from version control
 
 ## NOTE TO TESTERS
 
