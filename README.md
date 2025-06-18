@@ -14,6 +14,6 @@ The Cross-Asset OFI feature requires data from at least two distinct stocks. Sin
 
 The Cross-Asset OFI logic includes implementations of both Equation (8) and Equation (9) from the referenced paper. The default computation currently uses Equation (9), which incorporates integrated OFI via PCA. Equation (8), based on best-level OFI, is present but commented out and can be enabled if desired.
 
-For Multi-Level OFI, I compute the OFI vector across all 10 depth levels and default to summing the values for aggregation, as the paper does not specify a single standard for collapsing the vector. This approach ensures compatibility with both PCA and Lasso-based techniques.
+For Multi-Level OFI, I compute the OFI vector across all 10 depth levels and default to summing the values for aggregation under multi_level_ofi columns, as the paper does not specify a single standard for collapsing the vector. This does not change the veracity of the other implementations, such as integerated ofi, since they use the OFI vector directly.
 
 Both Best-Level OFI and Integrated OFI are implemented according to the definitions and motivations provided in the paper.
