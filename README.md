@@ -10,6 +10,10 @@ This repository implements four key OFI features for analyzing order book dynami
 
 ## NOTE TO TESTERS
 
-The cross-asset ofi requires the data for more than 1 stock. Since only the data for AAPL was provided, I used the same data given to also make GOOG.csv, only with the symbol name changed. The repo also assumes the nomenclature of "symbol.csv" for the data files. Additionally, the cross-asset implementation has Equation (8), as well as (9), the latter of which is the current default implementation.
+The Cross-Asset OFI feature requires data from at least two distinct stocks. Since only data for AAPL was provided, I duplicated the same dataset and renamed it as GOOG.csv to enable the computation. The repository expects all input files to follow the naming convention: SYMBOL.csv (e.g., AAPL.csv, GOOG.csv) and to be placed in the data/ folder.
 
-Additionally, the multi_level_ofi currently aggregates the sum. Since it was not specified how an OFI needs to be extracted from this, I defaulted to using this. However, like was specified in the paper, I calculate the ofi vector for all the 10 levels. The best_level_ofi and the integrated_ofi have been implemented as per the requirements and the paper.
+The Cross-Asset OFI logic includes implementations of both Equation (8) and Equation (9) from the referenced paper. The default computation currently uses Equation (9), which incorporates integrated OFI via PCA. Equation (8), based on best-level OFI, is present but commented out and can be enabled if desired.
+
+For Multi-Level OFI, I compute the OFI vector across all 10 depth levels and default to summing the values for aggregation, as the paper does not specify a single standard for collapsing the vector. This approach ensures compatibility with both PCA and Lasso-based techniques.
+
+Both Best-Level OFI and Integrated OFI are implemented according to the definitions and motivations provided in the paper.
